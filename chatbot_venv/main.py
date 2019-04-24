@@ -9,7 +9,7 @@ nltk.download('words')
 query = Query()
 list_query = []
 
-word_list = ["age", "mail", "name", "city", "birthdate", "number", "lastname"]
+word_list = ["age", "mail", "name", "city", "birthdate", "number", "lastname", "zodiac"]
 firstname_list = query.firstname_list()
 
 firstname = ""
@@ -38,4 +38,10 @@ for elt in list_query:
         query.city(firstname)
     elif elt == "number":
         query.number(firstname)
+    elif elt == "age":
+        query.age(firstname.capitalize())
+    elif elt == "mail":
+        query.mail(firstname.capitalize())
+    elif elt == "zodiac":
+        query.zodiac_sign(firstname)
 
