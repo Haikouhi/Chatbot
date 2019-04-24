@@ -14,17 +14,17 @@ class Query():
         self.curseur = self.connexion.cursor()
 
 
-    def liste_prenom(self):
+    def firstname_list(self):
 
-        liste = []
+        list = []
 
         sql = "SELECT firstname FROM class"
         self.curseur.execute(sql)
         data = self.curseur.fetchall()
         for person in data:
-            liste.append(person["firstname"])
+            list.append(person["firstname"])
 
-        return liste
+        return list
 
 
     def nom(self, prenom):
