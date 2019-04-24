@@ -1,4 +1,5 @@
 import pymysql
+import datetime
 
 class Query():
 
@@ -46,5 +47,26 @@ class Query():
             self.curseur.execute(sql)
             output = self.curseur.fetchone()
             print("His/Her birthdate is " + str(output["birthdate"]))
+        else:
+            print("Huuum, I don't know this person ! ")
+
+    def age(self, firstname):
+
+        if firstname != "":
+            sql = "SELECT birthdate FROM class WHERE firstname = '{}'".format(firstname)
+            self.curseur.execute(sql)
+            output = self.curseur.fetchone()
+            date = output["birthdate"]
+
+            now = datetime.datetime.now()
+
+            if date.month <= now.month:
+                if date.day <= now.day:
+                    person_age = now.year - date.year
+            else:
+                person_age = now.year - date.year - 1
+
+            print("He/She is {} years old".format(person_age))
+
         else:
             print("Huuum, I don't know this person ! ")

@@ -30,8 +30,10 @@ for elt in tokens:
 
 
 for elt in list_query:
-    if elt == "name":
+    if elt == "lastname":
         query.name(firstname.capitalize())
-    elif elt == "date":
+    elif elt == "birthdate":
         query.date(firstname.capitalize())
+    elif elt == "age":
+        query.age(firstname.capitalize())
 
