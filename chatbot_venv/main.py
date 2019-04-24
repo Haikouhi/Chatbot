@@ -2,6 +2,7 @@ from Query import *
 
 import nltk
 import numpy
+nltk.download('punkt')
 nltk.download('maxent_ne_chunker')
 nltk.download('words')
 
