@@ -32,10 +32,13 @@ class Query():
 
 
         if firstname != "":
-            sql = "SELECT lastname FROM class WHERE firstname = '{}'".format(firstname)
+            sql = "SELECT lastname, gender FROM class WHERE firstname = '{}'".format(firstname)
             self.curseur.execute(sql)
             output = self.curseur.fetchone()
-            print("His/Her/Their name is " + output["lastname"])
+            if output["gender"] == "M":
+                print("His name is " + output["lastname"])
+            else:
+                print("Her name is " + output["lastname"])
         else:
             print("Huuum, I don't know this person ! ")
 
@@ -43,10 +46,13 @@ class Query():
     def date(self, firstname):
 
         if firstname != "":
-            sql = "SELECT birthdate FROM class WHERE firstname = '{}'".format(firstname)
+            sql = "SELECT birthdate, gender FROM class WHERE firstname = '{}'".format(firstname)
             self.curseur.execute(sql)
             output = self.curseur.fetchone()
-            print("His/Her/Their birthdate is " + str(output["birthdate"]))
+            if output["gender"] == "M":
+                print("His birthdate is " + str(output["birthdate"]))
+            else:
+                print("His birthdate is " + str(output["birthdate"]))
         else:
             print("Huuum, I don't know this person ! ")
 
@@ -55,10 +61,13 @@ class Query():
     def city(self, firstname):
 
         if firstname != "":
-            sql = "SELECT city FROM class WHERE firstname = '{}'".format(firstname)
+            sql = "SELECT city, gender FROM class WHERE firstname = '{}'".format(firstname)
             self.curseur.execute(sql)
             output = self.curseur.fetchone()
-            print("He/She/They live in " + str(output["city"]))
+            if output["gender"] == "M":
+                print("He live in " + str(output["city"]))
+            else:
+                print("She live in " + str(output["city"]))
         else: 
             print("Huuum, I don't know this person ! ")
 
@@ -67,17 +76,21 @@ class Query():
     def number(self, firstname):
 
         if firstname != "":
-            sql = "SELECT phone_number FROM class WHERE firstname ='{}'".format(firstname)
+            sql = "SELECT phone_number, gender FROM class WHERE firstname ='{}'".format(firstname)
             self.curseur.execute(sql)
             output = self.curseur.fetchone()
-            print("His/her/Their phone number is +33" + str(output["phone_number"]))
+            if output["gender"] == "M":
+                print("His phone number is +33" + str(output["phone_number"]))
+            else:
+                print("His phone number is +33" + str(output["phone_number"]))
+
         else:
             print("Huuum, I don't know this person ! ")
 
     def age(self, firstname):
 
         if firstname != "":
-            sql = "SELECT birthdate FROM class WHERE firstname = '{}'".format(firstname)
+            sql = "SELECT birthdate, gender FROM class WHERE firstname = '{}'".format(firstname)
             self.curseur.execute(sql)
             output = self.curseur.fetchone()
             date = output["birthdate"]
@@ -90,24 +103,30 @@ class Query():
             else:
                 person_age = now.year - date.year - 1
 
-            print("He/She is {} years old".format(person_age))
+            if output["gender"] == "M":
+                print("He is {} years old".format(person_age))
+            else:
+                print("She is {} years old".format(person_age))
 
         else:
             print("Huuum, I don't know this person ! ")
     def mail(self, firstname):
 
         if firstname != "":
-            sql = "SELECT email FROM class WHERE firstname = '{}'".format(firstname)
+            sql = "SELECT email, gender FROM class WHERE firstname = '{}'".format(firstname)
             self.curseur.execute(sql)
             output = self.curseur.fetchone()
-            print("His/Her mail is " + str(output["email"]))
+            if output["gender"] == "M":
+                print("His mail is " + str(output["email"]))
+            else:
+                print("Her mail is " + str(output["email"]))
         else:
             print("Huuum, I don't know this person !")
 
     def zodiac_sign(self, firstname):
 
         if firstname != "":
-            sql = "SELECT birthdate FROM class WHERE firstname = '{}'".format(firstname)
+            sql = "SELECT birthdate, gender FROM class WHERE firstname = '{}'".format(firstname)
             self.curseur.execute(sql)
             output = self.curseur.fetchone()
             date = output["birthdate"]
@@ -137,7 +156,10 @@ class Query():
             else:
                 sign = "Pisces"
 
-            print("He/She is a " + sign)
+            if output["gender"] == "M":
+                print("He is a " + sign)
+            else:
+                print("He is a " + sign)
 
         else:
             print("Huuum, I don't know this person ! ")
