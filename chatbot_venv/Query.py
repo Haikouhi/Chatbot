@@ -14,7 +14,7 @@ class Query():
         self.curseur = self.connexion.cursor()
 
 
-    def liste_prenom(self):
+    def liste_firstname(self):
 
         liste = []
 
