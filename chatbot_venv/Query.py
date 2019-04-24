@@ -71,7 +71,9 @@ class Query():
             self.curseur.execute(sql)
             output = self.curseur.fetchone()
             print("His/her/Their phone number is +33" + str(output["phone_number"]))
-        else: 
+        else:
+            print("Huuum, I don't know this person ! ")
+
     def age(self, firstname):
 
         if firstname != "":
