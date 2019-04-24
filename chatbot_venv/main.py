@@ -57,6 +57,5 @@ while Continue:
     if len(list_query) == 0:
         print("I don't understand your question...")
 
-    for elt in list_query:
-        list_query.remove(elt)
+    list_query = []
 
