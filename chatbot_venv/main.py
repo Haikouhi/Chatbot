@@ -9,29 +9,29 @@ nltk.download('words')
 query = Query()
 list_query = []
 
-liste_mot = ["age", "mail", "lastname", "city", "date", "phone"]
-liste_firstname = query.liste_firstname()
+word_list = ["age", "mail", "name", "city", "birthdate", "number", "lastname"]
+firstname_list = query.firstname_list()
 
-prenom = ""
+firstname = ""
 
 
-sentence = input("Que voulez vous savoir ?\n")
+sentence = input("WHat would you like to know ?\n")
 
 
 
 tokens = nltk.word_tokenize(sentence)
 
 for elt in tokens:
-    if elt in liste_fristname:
-        prenom = elt
-    if elt in liste_mot:
+    if elt in firstname_list:
+        firstname = elt
+    if elt in word_list:
         list_query.append(elt)
 
 
 
 for elt in list_query:
-    if elt == "nom":
-        query.nom(prenom.capitalize())
+    if elt == "name":
+        query.name(firstname.capitalize())
     elif elt == "date":
-        query.date(prenom.capitalize())
+        query.date(firstname.capitalize())
 
