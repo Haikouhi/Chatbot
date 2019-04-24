@@ -5,9 +5,9 @@ class Query():
     def __init__(self):
 
         self.connexion = pymysql.connect(host='localhost',
-                                    user='theo',
-                                    password='aqwpml7913',
-                                    db='promo',
+                                    user='foobar',
+                                    password='foobar',
+                                    db='chit_chat',
                                     charset='utf8mb4',
                                     cursorclass=pymysql.cursors.DictCursor
                                     )
