@@ -65,9 +65,9 @@ class Query():
             self.curseur.execute(sql)
             output = self.curseur.fetchone()
             if output["gender"] == "M":
-                print("He live in " + str(output["city"]))
+                print("He lives in " + str(output["city"]))
             else:
-                print("She live in " + str(output["city"]))
+                print("She lives in " + str(output["city"]))
         else: 
             print("Huuum, I don't know this person ! ")
 

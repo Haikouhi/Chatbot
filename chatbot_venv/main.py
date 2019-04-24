@@ -9,40 +9,51 @@ nltk.download('words')
 query = Query()
 list_query = []
 
-word_list = ["age", "mail", "name", "city", "birthdate", "number", "lastname", "zodiac"]
+word_list = ["age", "mail", "name", "city", "birthdate", "number", "lastname", "zodiac", "bye", "goodbye", "exit"]
 firstname_list = query.firstname_list()
 
-firstname = ""
+print("Hi there, I'm Chit-Chat, let me know if you need my help !")
+
+Continue = True
+while Continue:
+
+    firstname = ""
 
 
 
-sentence = input("What would you like to know ?\n")
+    sentence = input("What would you like to know ?\n")
 
 
 
-tokens = nltk.word_tokenize(sentence)
+    tokens = nltk.word_tokenize(sentence)
 
-for elt in tokens:
-    if elt in firstname_list:
-        firstname = elt
-    if elt in word_list:
-        list_query.append(elt)
+    for elt in tokens:
+        if elt in firstname_list:
+            firstname = elt
+        if elt in word_list:
+            list_query.append(elt)
 
 
 
-for elt in list_query:
-    if elt == "lastname":
-        query.name(firstname.capitalize())
-    elif elt == "birthdate":
-        query.date(firstname.capitalize())
-    elif elt == "city":
-        query.city(firstname)
-    elif elt == "number":
-        query.number(firstname)
-    elif elt == "age":
-        query.age(firstname.capitalize())
-    elif elt == "mail":
-        query.mail(firstname.capitalize())
-    elif elt == "zodiac":
-        query.zodiac_sign(firstname)
+    for elt in list_query:
+        if elt == "lastname":
+            query.name(firstname.capitalize())
+        elif elt == "birthdate":
+            query.date(firstname.capitalize())
+        elif elt == "city":
+            query.city(firstname)
+        elif elt == "number":
+            query.number(firstname)
+        elif elt == "age":
+            query.age(firstname.capitalize())
+        elif elt == "mail":
+            query.mail(firstname.capitalize())
+        elif elt == "zodiac":
+            query.zodiac_sign(firstname)
+        elif elt == "bye" or elt == "goodbye" or elt == "exit":
+            print("See you soon loser!")
+            Continue = False
+
+    for elt in list_query:
+        list_query.remove(elt)
 

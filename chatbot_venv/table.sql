@@ -14,6 +14,7 @@ ENGINE=INNODB;
 
 
 
+
 INSERT INTO class (lastname, firstname, city, birthdate, email, phone_number, gender) 
     VALUES ('Dao', 'Mai', 'St Genis Laval', '1989-12-15', 'md.maidao@gmail.com', '776990433', 'F');
 INSERT INTO class (lastname, firstname, city, birthdate, email, phone_number, gender) 
@@ -46,6 +47,11 @@ INSERT INTO class (lastname, firstname, city, birthdate, email, phone_number, ge
     VALUES ('Oroudjian', 'Haikouhi', 'Villeurbanne', '1989-09-11', 'h.oroudjian@protonmail.com', '658175807', 'F');
 INSERT INTO class (lastname, firstname, city, birthdate, email, phone_number, gender) 
     VALUES ('Champredon', 'Marina', 'Villeurbanne', '1990-06-26', 'marina.champredon@gmail.com', '698008570', 'F');
+
+
+
+
+
 
 
 ALTER TABLE class 
