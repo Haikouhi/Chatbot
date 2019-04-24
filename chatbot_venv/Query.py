@@ -82,7 +82,7 @@ class Query():
             if output["gender"] == "M":
                 print("His phone number is +33" + str(output["phone_number"]))
             else:
-                print("His phone number is +33" + str(output["phone_number"]))
+                print("Her phone number is +33" + str(output["phone_number"]))
 
         else:
             print("Huuum, I don't know this person ! ")
