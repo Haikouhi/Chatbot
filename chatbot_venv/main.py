@@ -28,17 +28,12 @@ for elt in tokens:
         list_query.append(elt)
 
 
-
 for elt in list_query:
     if elt == "lastname":
         query.name(firstname.capitalize())
     elif elt == "birthdate":
         query.date(firstname.capitalize())
-<<<<<<< Updated upstream
     elif elt == "age":
         query.age(firstname.capitalize())
-=======
     elif elt == "mail":
         query.mail(firstname.capitalize())
->>>>>>> Stashed changes
-
