@@ -34,10 +34,11 @@ class Query():
             sql = "SELECT lastname FROM class WHERE firstname = '{}'".format(firstname)
             self.curseur.execute(sql)
             output = self.curseur.fetchone()
-            print("His/Her name is " + output["lastname"])
+            print("His/Her/Their name is " + output["lastname"])
         else:
             print("Huuum, I don't know this person ! ")
 
+# defining birthdate for any chosen name: 
     def date(self, firstname):
 
 
@@ -45,6 +46,18 @@ class Query():
             sql = "SELECT birthdate FROM class WHERE firstname = '{}'".format(firstname)
             self.curseur.execute(sql)
             output = self.curseur.fetchone()
-            print("His/Her birthdate is " + str(output["birthdate"]))
+            print("His/Her/Their birthdate is " + str(output["birthdate"]))
         else:
+            print("Huuum, I don't know this person ! ")
+
+
+# defining city for any chosen name:
+    def city(self, firstname):
+
+        if firstname !="":
+            sql = "SELECT city FROM class WHERE firstname = '{}'".format(firstname)
+            self.curseur.execute(sql)
+            output = self.curseur.fetchone()
+            print("He/She/They live in " + str(output["city"]))
+        else: 
             print("Huuum, I don't know this person ! ")
