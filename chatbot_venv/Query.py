@@ -27,24 +27,24 @@ class Query():
         return list
 
 
-    def nom(self, prenom):
+    def name(self, firstname):
 
 
-        if prenom != "":
-            sql = "SELECT lastname FROM class WHERE firstname = '{}'".format(prenom)
+        if firstname != "":
+            sql = "SELECT lastname FROM class WHERE firstname = '{}'".format(firstname)
             self.curseur.execute(sql)
             output = self.curseur.fetchone()
-            print("Son nom est " + output["lastname"])
+            print("His/Her name is " + output["lastname"])
         else:
-            print("Je ne connais pas cette personne")
+            print("Huuum, I don't know this person ! ")
 
-    def date(self, prenom):
+    def date(self, firstname):
 
 
-        if prenom != "":
-            sql = "SELECT birthdate FROM class WHERE firstname = '{}'".format(prenom)
+        if firstname != "":
+            sql = "SELECT birthdate FROM class WHERE firstname = '{}'".format(firstname)
             self.curseur.execute(sql)
             output = self.curseur.fetchone()
-            print("Sa date de naissance est " + str(output["birthdate"]))
+            print("His/Her birthdate is " + str(output["birthdate"]))
         else:
-            print("Je ne connais pas cette personne")
+            print("Huuum, I don't know this person ! ")
