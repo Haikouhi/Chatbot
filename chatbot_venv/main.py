@@ -15,6 +15,7 @@ firstname_list = query.firstname_list()
 firstname = ""
 
 
+
 sentence = input("What would you like to know ?\n")
 
 

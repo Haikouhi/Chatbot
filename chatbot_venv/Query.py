@@ -52,7 +52,7 @@ class Query():
             if output["gender"] == "M":
                 print("His birthdate is " + str(output["birthdate"]))
             else:
-                print("His birthdate is " + str(output["birthdate"]))
+                print("Her birthdate is " + str(output["birthdate"]))
         else:
             print("Huuum, I don't know this person ! ")
 
@@ -150,7 +150,7 @@ class Query():
             elif (date.month == 11 and date.day >= 22) or (date.month == 12 and date.day <= 21):
                 sign = "Sagittarius"
             elif (date.month == 12 and date.day >= 22) or (date.month == 1 and date.day <= 19):
-                sign = "Capricor"
+                sign = "Capricorn"
             elif (date.month == 1 and date.day >= 20) or (date.month == 2 and date.day <= 19):
                 sign = "Aquarius"
             else:
@@ -159,7 +159,7 @@ class Query():
             if output["gender"] == "M":
                 print("He is a " + sign)
             else:
-                print("He is a " + sign)
+                print("She is a " + sign)
 
         else:
             print("Huuum, I don't know this person ! ")
