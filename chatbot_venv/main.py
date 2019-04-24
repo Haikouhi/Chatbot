@@ -34,6 +34,11 @@ for elt in list_query:
         query.name(firstname.capitalize())
     elif elt == "birthdate":
         query.date(firstname.capitalize())
+<<<<<<< Updated upstream
     elif elt == "age":
         query.age(firstname.capitalize())
+=======
+    elif elt == "mail":
+        query.mail(firstname.capitalize())
+>>>>>>> Stashed changes
 

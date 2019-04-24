@@ -70,3 +70,12 @@ class Query():
 
         else:
             print("Huuum, I don't know this person ! ")
+    def mail(self, firstname):
+
+        if firstname != "":
+            sql = "SELECT email FROM class WHERE firstname = '{}'".format(firstname)
+            self.curseur.execute(sql)
+            output = self.curseur.fetchone()
+            print("His/Her mail is " + str(output["email"]))
+        else:
+            print("Huuum, I don't know this person !")
