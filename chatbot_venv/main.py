@@ -15,7 +15,7 @@ firstname_list = query.firstname_list()
 firstname = ""
 
 
-sentence = input("WHat would you like to know ?\n")
+sentence = input("What would you like to know ?\n")
 
 
 
@@ -30,8 +30,12 @@ for elt in tokens:
 
 
 for elt in list_query:
-    if elt == "name":
+    if elt == "lastname":
         query.name(firstname.capitalize())
     elif elt == "birthdate":
         query.date(firstname.capitalize())
+    elif elt == "city":
+        query.city(firstname)
+    elif elt == "number":
+        query.number(firstname)
 
