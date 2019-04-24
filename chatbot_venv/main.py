@@ -32,6 +32,6 @@ for elt in tokens:
 for elt in list_query:
     if elt == "name":
         query.name(firstname.capitalize())
-    elif elt == "date":
+    elif elt == "birthdate":
         query.date(firstname.capitalize())
 
