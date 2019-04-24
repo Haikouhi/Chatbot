@@ -5,9 +5,9 @@ class Query():
     def __init__(self):
 
         self.connexion = pymysql.connect(host='localhost',
-                                    user='theo',
-                                    password='aqwpml7913',
-                                    db='promo',
+                                    user='foobar',
+                                    password='foobar',
+                                    db='chit_chat',
                                     charset='utf8mb4',
                                     cursorclass=pymysql.cursors.DictCursor
                                     )
@@ -18,11 +18,11 @@ class Query():
 
         liste = []
 
-        sql = "SELECT prenom FROM eleves"
+        sql = "SELECT firstname FROM class"
         self.curseur.execute(sql)
         data = self.curseur.fetchall()
         for person in data:
-            liste.append(person["prenom"])
+            liste.append(person["firstname"])
 
         return liste
 
@@ -31,10 +31,10 @@ class Query():
 
 
         if prenom != "":
-            sql = "SELECT nom FROM eleves WHERE prenom = '{}'".format(prenom)
+            sql = "SELECT lastname FROM class WHERE firstname = '{}'".format(prenom)
             self.curseur.execute(sql)
             output = self.curseur.fetchone()
-            print("Son nom est " + output["nom"])
+            print("Son nom est " + output["lastname"])
         else:
             print("Je ne connais pas cette personne")
 
@@ -42,9 +42,9 @@ class Query():
 
 
         if prenom != "":
-            sql = "SELECT date_de_naissance FROM eleves WHERE prenom = '{}'".format(prenom)
+            sql = "SELECT birthdate FROM class WHERE firstname = '{}'".format(prenom)
             self.curseur.execute(sql)
             output = self.curseur.fetchone()
-            print("Sa date de naissance est " + str(output["date_de_naissance"]))
+            print("Sa date de naissance est " + str(output["birthdate"]))
         else:
             print("Je ne connais pas cette personne")
