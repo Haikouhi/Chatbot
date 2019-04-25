@@ -9,7 +9,7 @@ nltk.download('words')
 query = Query()
 list_query = []
 
-word_list = ["age", "mail", "prenom", "ville", "date", "numero", "nom", "astrologique", "bye", "au revoir", "exit"]
+word_list = ["age", "mail", "prenom", "ville", "adresse", "habite", "date", "naissance", "numero", "telephone", "nom", "astrologique", "signe", "bye", "au revoir", "exit"]
 firstname_list = query.firstname_list()
 
 
@@ -40,17 +40,17 @@ while Continue:
     for elt in list_query:
         if elt == "nom":
             query.name(firstname)
-        elif elt == "date":
+        elif elt == "date" or elt == "naissance":
             query.date(firstname)
-        elif elt == "ville":
+        elif elt == "ville" or elt == "habite" or elt == "adresse":
             query.city(firstname)
-        elif elt == "numero":
+        elif elt == "numero" or elt == "telephone":
             query.number(firstname)
         elif elt == "age":
             query.age(firstname)
         elif elt == "mail":
             query.mail(firstname)
-        elif elt == "astrologique":
+        elif elt == "astrologique" or elt == "signe":
             query.zodiac_sign(firstname)
         elif elt == "bye" or elt == "au revoir" or elt == "exit":
             print("See you soon loser!")
