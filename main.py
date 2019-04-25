@@ -21,7 +21,7 @@ possible_response = ["Bien sur que non", "Je ne pense pas ", "No!",
                      "Arrete de poser des questions", "Qu'est-ce que j'en sais moi ?",
                      "Je suis ton père","Arrete de dire des conneries stp", "Tu sors ou je te sors?", 
                      "C'est qui la patronne?", "Nope", "Demandes à PL", "Demandes à Sumenia", "Plaît-il",
-                     "pffffff", ":confused:", ":snake:"
+                     "pffffff", ":confused:", ":snake:", ":eye:", ":octopus:"
                      ]
 
 
