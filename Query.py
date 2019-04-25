@@ -36,11 +36,11 @@ class Query():
             self.curseur.execute(sql)
             output = self.curseur.fetchone()
             if output["gender"] == "M":
-                print("Son nom est " + output["lastname"])
+                return "Son nom est " + output["lastname"]
             else:
-                print("Son nom est " + output["lastname"])
+                return "Son nom est " + output["lastname"]
         else:
-            print("Huuum, je ne connais pas cette personne ! ")
+            return "Huuum, je ne connais pas cette personne ! "
 
 # defining birthdate for any chosen name: 
     def date(self, firstname):
@@ -50,11 +50,11 @@ class Query():
             self.curseur.execute(sql)
             output = self.curseur.fetchone()
             if output["gender"] == "M":
-                print("Il est né le " + str(output["birthdate"]))
+                return "Il est né le " + str(output["birthdate"])
             else:
-                print("Elle est née le" + str(output["birthdate"]))
+                return "Elle est née le" + str(output["birthdate"])
         else:
-            print("Huuum, je ne connais pas cette personne ! ")
+            return "Huuum, je ne connais pas cette personne ! "
 
 
 # defining city for any chosen name:
@@ -65,11 +65,11 @@ class Query():
             self.curseur.execute(sql)
             output = self.curseur.fetchone()
             if output["gender"] == "M":
-                print("Il habite à " + str(output["city"]))
+                return "Il habite à " + str(output["city"])
             else:
-                print("Elle habite à " + str(output["city"]))
+                return "Elle habite à " + str(output["city"])
         else: 
-            print("Huuum, je ne connais pas cette personne ! ")
+            return "Huuum, je ne connais pas cette personne ! "
 
 
 # defining phone number for any chosen name:
@@ -80,12 +80,12 @@ class Query():
             self.curseur.execute(sql)
             output = self.curseur.fetchone()
             if output["gender"] == "M":
-                print("Son numéro de téléphone est +33" + str(output["phone_number"]))
+                return "Son numéro de téléphone est +33" + str(output["phone_number"])
             else:
-                print("Son numéro de téléphone est +33" + str(output["phone_number"]))
+                return "Son numéro de téléphone est +33" + str(output["phone_number"])
 
         else:
-            print("Huuum, je ne connais pas cette personne ! ")
+            return "Huuum, je ne connais pas cette personne ! "
 
     def age(self, firstname):
 
@@ -104,12 +104,12 @@ class Query():
                 person_age = now.year - date.year - 1
 
             if output["gender"] == "M":
-                print("Il a {} ans".format(person_age))
+                return "Il a {} ans".format(person_age)
             else:
-                print("Elle a {} ans".format(person_age))
+                return "Elle a {} ans".format(person_age)
 
         else:
-            print("Huuum, je ne connais pas cette personne !")
+            return "Huuum, je ne connais pas cette personne !"
 
     def mail(self, firstname):
 
@@ -118,11 +118,11 @@ class Query():
             self.curseur.execute(sql)
             output = self.curseur.fetchone()
             if output["gender"] == "M":
-                print("Son adresse email est " + str(output["email"]))
+                return "Son adresse email est " + str(output["email"])
             else:
-                print("Son adresse email est " + str(output["email"]))
+                return "Son adresse email est " + str(output["email"])
         else:
-            print("Huuum, je ne connais pas cette personne !")
+            return "Huuum, je ne connais pas cette personne !"
 
     def zodiac_sign(self, firstname):
 
@@ -158,9 +158,9 @@ class Query():
                 sign = "Poisson"
 
             if output["gender"] == "M":
-                print("Il est " + sign)
+                return "Il est " + sign
             else:
-                print("Elle est " + sign)
+                return "Elle est " + sign
 
         else:
-            print("Huuum, je ne connais pas cette personne ! ")
+            return "Huuum, je ne connais pas cette personne ! "
