@@ -9,21 +9,21 @@ nltk.download('words')
 query = Query()
 list_query = []
 
-word_list = ["age", "mail", "name", "city", "birthdate", "number", "lastname", "zodiac", "bye", "goodbye", "exit"]
+word_list = ["age", "mail", "prenom", "ville", "date", "numero", "nom", "astrologique", "bye", "au revoir", "exit"]
 firstname_list = query.firstname_list()
 
 
 firstname = ""
-print("Hi there, I'm Chit-Chat, let me know if you need my help !")
+print("Bonjour ! Je suis Chit-Chat (: ")
 
 Continue = True
 while Continue:
 
-    firstname = ""
+    prenom = ""
 
 
 
-    sentence = input("What would you like to know ?\n")
+    sentence = input("Que voulez-vous savoir ?\n")
 
 
 
@@ -38,26 +38,25 @@ while Continue:
 
 
     for elt in list_query:
-        if elt == "lastname":
+        if elt == "nom":
             query.name(firstname)
-        elif elt == "birthdate":
+        elif elt == "date":
             query.date(firstname)
-        elif elt == "city":
+        elif elt == "ville":
             query.city(firstname)
-        elif elt == "number":
+        elif elt == "numero":
             query.number(firstname)
         elif elt == "age":
             query.age(firstname)
         elif elt == "mail":
             query.mail(firstname)
-        elif elt == "zodiac":
+        elif elt == "astrologique":
             query.zodiac_sign(firstname)
-        elif elt == "bye" or elt == "goodbye" or elt == "exit":
+        elif elt == "bye" or elt == "au revoir" or elt == "exit":
             print("See you soon loser!")
             Continue = False
 
     if len(list_query) == 0:
-        print("I don't understand your question...")
+        print("Je ne comprends pas la question...")
 
     list_query = []
-

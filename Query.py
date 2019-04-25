@@ -50,9 +50,9 @@ class Query():
             self.curseur.execute(sql)
             output = self.curseur.fetchone()
             if output["gender"] == "M":
-                print("Son anniversaire est le " + str(output["birthdate"]))
+                print("Il est né le " + str(output["birthdate"]))
             else:
-                print("Son anniversaire est le " + str(output["birthdate"]))
+                print("Elle est née le" + str(output["birthdate"]))
         else:
             print("Huuum, je ne connais pas cette personne ! ")
 
@@ -133,29 +133,29 @@ class Query():
             date = output["birthdate"]
 
             if (date.month == 3 and date.day >= 21) or (date.month == 4 and date.day <= 19):
-                sign = "Aries"
+                sign = "Belier"
             elif (date.month == 4 and date.day >= 20) or (date.month == 5 and date.day <= 20):
-                sign = "Taurus"
+                sign = "Taureau"
             elif (date.month == 5 and date.day >= 21) or (date.month == 6 and date.day <= 20):
-                sign = "Gemini"
+                sign = "Gemeaux"
             elif (date.month == 6 and date.day >= 21) or (date.month == 7 and date.day <= 22):
                 sign = "Cancer"
             elif (date.month == 7 and date.day >= 23) or (date.month == 8 and date.day <= 23):
-                sign = "Leo"
+                sign = "Lion"
             elif (date.month == 8 and date.day >= 24) or (date.month == 9 and date.day <= 22):
-                sign = "Virgo"
+                sign = "Vierge"
             elif (date.month == 9 and date.day >= 23) or (date.month == 10 and date.day <= 22):
-                sign = "Libra"
+                sign = "Balance"
             elif (date.month == 10 and date.day >= 23) or (date.month == 11 and date.day <= 21):
-                sign = "Scorpio"
+                sign = "Scorpion"
             elif (date.month == 11 and date.day >= 22) or (date.month == 12 and date.day <= 21):
-                sign = "Sagittarius"
+                sign = "Sagittaire"
             elif (date.month == 12 and date.day >= 22) or (date.month == 1 and date.day <= 19):
-                sign = "Capricorn"
+                sign = "Capricorne"
             elif (date.month == 1 and date.day >= 20) or (date.month == 2 and date.day <= 19):
-                sign = "Aquarius"
+                sign = "Verseau"
             else:
-                sign = "Pisces"
+                sign = "Poisson"
 
             if output["gender"] == "M":
                 print("Il est " + sign)
