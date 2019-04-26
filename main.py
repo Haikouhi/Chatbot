@@ -15,7 +15,7 @@ client = discord.Client()
 query = Query()
 list_query = []
 
-word_list = ["gueule", "bonjour", "age", "mail", "prenom", "ville", "adresse", "habite", "naissance", "numero", "telephone", "nom", "astrologique", "signe", "bye", "au revoir", "exit"]
+word_list = ["gueule", "bonjour", "hey", "hi", "yo", "salut", "age", "mail", "prenom", "ville", "adresse", "habite", "naissance", "numero", "telephone", "nom", "astrologique", "signe", "bye", "au revoir", "exit"]
 firstname_list = query.firstname_list()
 possible_response = ["Bien sur que non", "Je ne pense pas ", "No!",
                      "Arrete de poser des questions", "Qu'est-ce que j'en sais moi ?",
@@ -66,7 +66,7 @@ async  def on_message(message):
                 answer += query.zodiac_sign(firstname) + '\n'
             elif elt == "bye" or elt == "au revoir" or elt == "exit":
                 answer += "See you soon loser!"
-            elif elt == "bonjour":
+            elif elt == "bonjour" or elt == "hey" or elt == "yo" or elt == "salut" or elt == "hi":
                 answer += "Bonjour ! Je suis Chit-Chat (: "
             elif elt == "gueule":
                 if firstname != "":
