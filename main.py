@@ -18,7 +18,7 @@ query = Query() # créer un objet de notre class Query qui nosu permetd e faire 
 word_list = ["gueule", "bonjour", "hey", "hi", "yo", "salut", "age", "mail", "prenom", "ville", "adresse",
              "l'adresse", "habite", "naissance", "numero", "telephone", "nom", "astrologique", "signe",
              "bye", "au revoir", "exit", "va", "ça", "ca", "vas", "comment", "anniversaire", "l'anniversaire",
-              "horoscope", "l'horoscope", "numéro"] 
+              "horoscope", "l'horoscope", "numéro", "né", "née"] 
 firstname_list = query.firstname_list() # on recupère la liste des prenoms dans une liste
 
 # réponses aléatoir (voir random)
@@ -56,7 +56,7 @@ async  def on_message(message): # l'évèn est celui d'un utilis. qui écrit un 
         for elt in list_query: # on parcourt ttes les requ effectuées (les if...)
             if elt == "nom":
                 answer += query.name(firstname) + '\n'
-            elif elt == "naissance":
+            elif elt == "naissance" or elt == "né" or elt == "née":
                 answer += query.date(firstname) + '\n'
             elif elt == "anniversaire" or elt == "l'anniversaire":
                 answer += query.anniversaire(firstname) + '\n'
