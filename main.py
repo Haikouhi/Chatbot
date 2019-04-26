@@ -12,7 +12,7 @@ token = "NTcwNjY4NzMwNDc3MTgyOTc5.XMF6jA.kdH4AsJhL7VNrM6C_JuKcKJ6AFI" # clef d'i
 
 client = discord.Client() # initialise Discord
 
-query = Query() # créer un objet de notre class Query qui nosu permetd e faire toutes les requêtes
+query = Query() # créer un objet de notre class Query qui nous permet de faire toutes les requêtes
 
 # liste de tous les noms que le bot doit reconnaître dans les phrases/questions
 word_list = ["gueule", "bonjour", "hey", "hi", "yo", "salut", "age", "mail", "prenom", "ville", "adresse",
@@ -21,7 +21,7 @@ word_list = ["gueule", "bonjour", "hey", "hi", "yo", "salut", "age", "mail", "pr
               "horoscope", "l'horoscope", "numéro", "né", "née", "téléphone", "télephone"] 
 firstname_list = query.firstname_list() # on recupère la liste des prenoms dans une liste
 
-# réponses aléatoir (voir random)
+# réponses aléatoire (voir random)
 possible_response = ["Bien sur que non", "Je ne pense pas ", "No!",
                      "Arrete de poser des questions", "Qu'est-ce que j'en sais moi ?",
                      "Je suis ton père","Arrete de dire des conneries stp", "Tu sors ou je te sors?", 
