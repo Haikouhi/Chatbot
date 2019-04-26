@@ -3,10 +3,10 @@ import discord
 from random import randint
 
 import nltk
-import numpy
-nltk.download('punkt')
-nltk.download('maxent_ne_chunker')
-nltk.download('words')
+
+#nltk.download('punkt')
+#nltk.download('maxent_ne_chunker')
+#nltk.download('words')
 
 token = "NTcwNjY4NzMwNDc3MTgyOTc5.XMF6jA.kdH4AsJhL7VNrM6C_JuKcKJ6AFI"
 
@@ -15,7 +15,9 @@ client = discord.Client()
 query = Query()
 list_query = []
 
-word_list = ["gueule", "bonjour", "hey", "hi", "yo", "salut", "age", "mail", "prenom", "ville", "adresse", "habite", "naissance", "numero", "telephone", "nom", "astrologique", "signe", "bye", "au revoir", "exit"]
+word_list = ["gueule", "bonjour", "hey", "hi", "yo", "salut", "age", "mail", "prenom", "ville", "adresse",
+             "l'adresse", "habite", "naissance", "numero", "telephone", "nom", "astrologique", "signe",
+             "bye", "au revoir", "exit", "va", "ça", "ca", "vas", "comment"]
 firstname_list = query.firstname_list()
 possible_response = ["Bien sur que non", "Je ne pense pas ", "No!",
                      "Arrete de poser des questions", "Qu'est-ce que j'en sais moi ?",
@@ -54,7 +56,7 @@ async  def on_message(message):
                 answer += query.name(firstname) + '\n'
             elif elt == "naissance":
                 answer += query.date(firstname) + '\n'
-            elif elt == "ville" or elt == "habite" or elt == "adresse":
+            elif elt == "ville" or elt == "habite" or elt == "adresse" or elt == "l'adresse":
                 answer += query.city(firstname) +'\n'
             elif elt == "numero" or elt == "telephone":
                 answer += query.number(firstname) + '\n'
@@ -76,11 +78,14 @@ async  def on_message(message):
                         answer += "Non, j'ai trop de respect pour elle, c'est l'une de mes créatrices"
                     else:
                         answer += "Ta gueule {}".format(firstname)
+            elif elt == "va" or elt == "vas":
+                if "ca" in list_query or "ça" in list_query or "comment" in list_query:
+                    answer += "Je pète la forme"
 
 
         if len(list_query) == 0:
 
-            index_response_picked = randint(0,len(possible_response))
+            index_response_picked = randint(0,len(possible_response) - 1)
             response = possible_response[index_response_picked]
             answer += response
 
