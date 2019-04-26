@@ -199,8 +199,8 @@ class Query(): # gère toutes les req
 
         horoscope = {}
 
-        for i in range(len(signe)):
-            horoscope[signe[i].string.replace("Horoscope ", "")] = p[i * 2].string + p[i * 2 + 1].string
+        for i,s in enumerate(signe):
+            horoscope[s.string.replace("Horoscope ", "")] = p[i * 2].string + p[i * 2 + 1].string
 
         person_sign = self.zodiac_sign(firstname)
         return horoscope[person_sign]
