@@ -17,7 +17,8 @@ query = Query() # créer un objet de notre class Query qui nosu permetd e faire 
 # liste de tous les noms que le bot doit reconnaître dans les phrases/questions
 word_list = ["gueule", "bonjour", "hey", "hi", "yo", "salut", "age", "mail", "prenom", "ville", "adresse",
              "l'adresse", "habite", "naissance", "numero", "telephone", "nom", "astrologique", "signe",
-             "bye", "au revoir", "exit", "va", "ça", "ca", "vas", "comment", "anniversaire", "l'anniversaire", "horoscope"] 
+             "bye", "au revoir", "exit", "va", "ça", "ca", "vas", "comment", "anniversaire", "l'anniversaire",
+              "horoscope", "l'horoscope"] 
 firstname_list = query.firstname_list() # on recupère la liste des prenoms dans une liste
 
 # réponses aléatoir (voir random)
@@ -59,7 +60,7 @@ async  def on_message(message): # l'évèn est celui d'un utilis. qui écrit un 
                 answer += query.date(firstname) + '\n'
             elif elt == "anniversaire" or elt == "l'anniversaire":
                 answer += query.anniversaire(firstname) + '\n'
-            elif elt == "horoscope":
+            elif elt == "horoscope" or elt == "l'horoscope":
                 answer += query.horoscope(firstname) + '\n'
             elif elt == "ville" or elt == "habite" or elt == "adresse" or elt == "l'adresse":
                 answer += query.city(firstname) +'\n'
@@ -70,7 +71,7 @@ async  def on_message(message): # l'évèn est celui d'un utilis. qui écrit un 
             elif elt == "mail":
                 answer += query.mail(firstname) + '\n'
             elif elt == "astrologique" or elt == "signe":
-                answer += query.zodiac_sign(firstname) + '\n'
+                answer += "Son signe est " + query.zodiac_sign(firstname) + '\n'
             elif elt == "bye" or elt == "au revoir" or elt == "exit":
                 answer += "See you soon loser!"
             elif elt == "bonjour" or elt == "hey" or elt == "yo" or elt == "salut" or elt == "hi":

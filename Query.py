@@ -142,7 +142,7 @@ class Query(): # gère toutes les req
             elif (date.month == 4 and date.day >= 20) or (date.month == 5 and date.day <= 20):
                 sign = "Taureau"
             elif (date.month == 5 and date.day >= 21) or (date.month == 6 and date.day <= 20):
-                sign = "Gemeaux"
+                sign = "Gémeaux"
             elif (date.month == 6 and date.day >= 21) or (date.month == 7 and date.day <= 22):
                 sign = "Cancer"
             elif (date.month == 7 and date.day >= 23) or (date.month == 8 and date.day <= 23):
