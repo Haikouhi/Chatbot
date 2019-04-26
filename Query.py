@@ -1,5 +1,7 @@
 import pymysql # language sql 
 import datetime # gestion des dates
+from bs4 import BeautifulSoup
+import requests
 
 class Query(): # gère toutes les req
 
@@ -13,7 +15,6 @@ class Query(): # gère toutes les req
                                     cursorclass=pymysql.cursors.DictCursor
                                     )
         self.curseur = self.connexion.cursor()
-
 
     def firstname_list(self): # renvoie al liste des prenoms dans la db
 
@@ -31,7 +32,7 @@ class Query(): # gère toutes les req
     def name(self, firstname):  # pour recup' le nom
 
 
-        if firstname != "": # on s'assure que firstame n'est nul
+        if firstname != "": # on s'assure que firstname n'est nul
             sql = "SELECT lastname, gender FROM class WHERE firstname = '{}'".format(firstname) # req sql avec prenom en param...
             self.curseur.execute(sql) # on execute...
             output = self.curseur.fetchone() # on recup le output...
@@ -49,10 +50,14 @@ class Query(): # gère toutes les req
             sql = "SELECT birthdate, gender FROM class WHERE firstname = '{}'".format(firstname)
             self.curseur.execute(sql)
             output = self.curseur.fetchone()
+            date_courte = output["birthdate"]
+            d = date_courte.day
+            m = date_courte.month
+            y = date_courte.year
             if output["gender"] == "M":
-                return "Il est né le " + str(output["birthdate"])
+                return "Il est né le " + str(d) + "/" + "0" + str(m) + "/" + str(y)
             else:
-                return "Elle est née le" + str(output["birthdate"])
+                return "Elle est née le" + str(d) + "/" + "0" + str(m) + "/" + str(y)
         else:
             return "Huuum, je ne connais pas cette personne ! "
 
@@ -158,9 +163,44 @@ class Query(): # gère toutes les req
                 sign = "Poisson"
 
             if output["gender"] == "M":
-                return "Il est " + sign
+                return sign
             else:
-                return "Elle est " + sign
+                return sign
 
         else:
             return "Huuum, je ne connais pas cette personne ! "
+
+    def anniversaire(self, firstname):
+
+        if firstname != "":
+            sql = "SELECT birthdate, gender FROM class WHERE firstname = '{}'".format(firstname)
+            self.curseur.execute(sql)
+            output = self.curseur.fetchone()
+            date_courte = output["birthdate"]
+            d = date_courte.day
+            m = date_courte.month
+            y = date_courte.year
+            if output["gender"] == "M":
+                return "Son anniversaire est le " + str(d) + "/" + "0" + str(m)
+            else:
+                return "Son anniversaire est le " + str(d) + "/" + "0" + str(m)
+        else:
+            return "Huuum, je ne connais pas cette personne ! "
+
+
+    def horoscope(self, firstname):
+        requete = requests.get("https://www.20minutes.fr/horoscope/")
+        page = requete.content
+        soup = BeautifulSoup(page, "html.parser")
+
+        signe = soup.find_all("h2", {"class": "titleblock-titles-title"})
+
+        p = soup.find_all("p", {"class": "mb2"})
+
+        horoscope = {}
+
+        for i in range(len(signe)):
+            horoscope[signe[i].string.replace("Horoscope ", "")] = p[i * 2].string + p[i * 2 + 1].string
+
+        person_sign = self.zodiac_sign(firstname)
+        return horoscope[person_sign]
