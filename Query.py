@@ -1,9 +1,9 @@
-import pymysql
-import datetime
+import pymysql # language sql 
+import datetime # gestion des dates
 
-class Query():
+class Query(): # gère toutes les req
 
-    def __init__(self):
+    def __init__(self): # initialisation où l'on se connecte à notre db
 
         self.connexion = pymysql.connect(host='localhost',
                                     user='foobar',
@@ -15,31 +15,31 @@ class Query():
         self.curseur = self.connexion.cursor()
 
 
-    def firstname_list(self):
+    def firstname_list(self): # renvoie al liste des prenoms dans la db
 
-        list = []
+        list = [] # init de la liste que l'on va return
 
-        sql = "SELECT firstname FROM class"
-        self.curseur.execute(sql)
-        data = self.curseur.fetchall()
-        for person in data:
-            list.append(person["firstname"])
+        sql = "SELECT firstname FROM class" # cmd sql...
+        self.curseur.execute(sql) # on l'execute...
+        data = self.curseur.fetchall() # on stock le resultat...
+        for person in data: # on parcourt...
+            list.append(person["firstname"]) # on ajoute al réponse dans la liste
 
-        return list
-
-
-    def name(self, firstname):
+        return list 
 
 
-        if firstname != "":
-            sql = "SELECT lastname, gender FROM class WHERE firstname = '{}'".format(firstname)
-            self.curseur.execute(sql)
-            output = self.curseur.fetchone()
+    def name(self, firstname):  # pour recup' le nom
+
+
+        if firstname != "": # on s'assure que firstame n'est nul
+            sql = "SELECT lastname, gender FROM class WHERE firstname = '{}'".format(firstname) # req sql avec prenom en param...
+            self.curseur.execute(sql) # on execute...
+            output = self.curseur.fetchone() # on recup le output...
             if output["gender"] == "M":
                 return "Son nom est " + output["lastname"]
             else:
                 return "Son nom est " + output["lastname"]
-        else:
+        else: # si firstname n'est pas dans db :
             return "Huuum, je ne connais pas cette personne ! "
 
 # defining birthdate for any chosen name: 

@@ -1,24 +1,26 @@
-from Query import *
-import discord
-from random import randint
+from Query import * #pour importer la class Query qui gère toutes les requêtes
+import discord # pour pvr utiliser les fonct. de Discord
+from random import randint # pour tirer certaines phrases de façons aléatoire
 
-import nltk
+import nltk # librairie qui permet de couper les phrases avec des tokens
 
-#nltk.download('punkt')
-#nltk.download('maxent_ne_chunker')
-#nltk.download('words')
+#nltk.download('punkt') # les packages à installer lors du lancement initial du programme
+#nltk.download('maxent_ne_chunker') # les packages à installer lors du lancement initial du programme
+#nltk.download('words') # les packages à installer lors du lancement initial du programme
 
-token = "NTcwNjY4NzMwNDc3MTgyOTc5.XMF6jA.kdH4AsJhL7VNrM6C_JuKcKJ6AFI"
+token = "NTcwNjY4NzMwNDc3MTgyOTc5.XMF6jA.kdH4AsJhL7VNrM6C_JuKcKJ6AFI" # clef d'identif' pour notre bot
 
-client = discord.Client()
+client = discord.Client() # initialise Discord
 
-query = Query()
-list_query = []
+query = Query() # créer un objet de notre class Query qui nosu permetd e faire toutes les requêtes
 
+# liste de tous les noms que le bot doit reconnaître dans les phrases/questions
 word_list = ["gueule", "bonjour", "hey", "hi", "yo", "salut", "age", "mail", "prenom", "ville", "adresse",
              "l'adresse", "habite", "naissance", "numero", "telephone", "nom", "astrologique", "signe",
-             "bye", "au revoir", "exit", "va", "ça", "ca", "vas", "comment"]
-firstname_list = query.firstname_list()
+             "bye", "au revoir", "exit", "va", "ça", "ca", "vas", "comment"] 
+firstname_list = query.firstname_list() # on recupère la liste des prenoms dans une liste
+
+# réponses aléatoir (voir random)
 possible_response = ["Bien sur que non", "Je ne pense pas ", "No!",
                      "Arrete de poser des questions", "Qu'est-ce que j'en sais moi ?",
                      "Je suis ton père","Arrete de dire des conneries stp", "Tu sors ou je te sors?", 
@@ -27,31 +29,30 @@ possible_response = ["Bien sur que non", "Je ne pense pas ", "No!",
                      ]
 
 
-firstname = ""
 
-@client.event
-async  def on_message(message):
-    if message.author != client.user:
-        sentence = message.content
+@client.event # gestion des évènements dans Discord
+async  def on_message(message): # l'évèn est celui d'un utilis. qui écrit un message
+    if message.author != client.user: # pour éviter que le bot se réponde à lui-même 
+        sentence = message.content # initialise sentence qui est le contenu du message envoyé
 
-        list_query = []
-        firstname = ""
-        answer = ""
-
-
-
-        tokens = nltk.word_tokenize(sentence)
-
-        for elt in tokens:
-            if elt.capitalize() in firstname_list:
-                firstname = elt.capitalize()
-            if elt.lower() in word_list:
-                list_query.append(elt.lower())
+        list_query = [] # initialisation de la liste des requêtes que l'on va effectuer 
+        firstname = "" # init vide pour les demandes de prenoms non connu par la db
+        answer = "" # init le message que le bot va envoyer
 
 
 
+        tokens = nltk.word_tokenize(sentence) # permet de recupérer la réponse en tokens (mot par mot)
 
-        for elt in list_query:
+        for elt in tokens: # parcourir tous les tokens 
+            if elt.capitalize() in firstname_list: # si l'un des tokens est un prenom dans la liste des prenoms....
+                firstname = elt.capitalize() # le prenom devient cet élèment
+            if elt.lower() in word_list: # si un des tokens dans la liste des mots...
+                list_query.append(elt.lower()) # on l'ajoute dans la liste des requêtes à effectuer
+
+
+
+
+        for elt in list_query: # on parcourt ttes les requ effectuées (les if...)
             if elt == "nom":
                 answer += query.name(firstname) + '\n'
             elif elt == "naissance":
@@ -83,16 +84,16 @@ async  def on_message(message):
                     answer += "Je pète la forme"
 
 
-        if len(list_query) == 0:
+        if len(list_query) == 0: # si liste des Query = 0...
 
-            index_response_picked = randint(0,len(possible_response) - 1)
-            response = possible_response[index_response_picked]
-            answer += response
+            index_response_picked = randint(0,len(possible_response) - 1) # on tire au sort un index entre 0 et nombre-1...
+            response = possible_response[index_response_picked] # réponse choisie...
+            answer += response # et ajoutée ! 
 
-        list_query = []
+        list_query = [] # on reinit la liste de Query à 0 car sinon les premieres req vont être répétées avec les nouvelles 
 
-        await message.channel.send(answer)
+        await message.channel.send(answer) # envoie le message sur Discord
 
-client.run(token)
+client.run(token) 
 
 
