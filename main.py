@@ -4,9 +4,9 @@ from random import randint # pour tirer certaines phrases de façons aléatoire
 
 import nltk # librairie qui permet de couper les phrases avec des tokens
 
-#nltk.download('punkt') # les packages à installer lors du lancement initial du programme
-#nltk.download('maxent_ne_chunker') # les packages à installer lors du lancement initial du programme
-#nltk.download('words') # les packages à installer lors du lancement initial du programme
+nltk.download('punkt') # les packages à installer lors du lancement initial du programme
+nltk.download('maxent_ne_chunker') # les packages à installer lors du lancement initial du programme
+nltk.download('words') # les packages à installer lors du lancement initial du programme
 
 token = "NTcwNjY4NzMwNDc3MTgyOTc5.XMF6jA.kdH4AsJhL7VNrM6C_JuKcKJ6AFI" # clef d'identif' pour notre bot
 
